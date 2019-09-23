@@ -32,12 +32,22 @@ public class HeroesAndTeamsSeleniumTest {
     }
 
     @Test
-    public void searchingWebPageTest() throws InterruptedException{
+    public void changingWebPageTest() throws InterruptedException{
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
         Thread.sleep(2000);
         WebElement teamsPage = driver.findElement(By.xpath("/html/body/div/div[1]/button[2]"));
         teamsPage.click();
+        Thread.sleep(5000);
+
+    }
+    @Test
+    public void searchForHeroTest()throws InterruptedException{
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/heros.html");
+        Thread.sleep(3000);
+        WebElement heroName = driver.findElement(By.xpath("//*[@id=\"nameHero\"]"));
+        heroName.sendKeys("Captain America");
         Thread.sleep(5000);
 
     }
@@ -61,8 +71,12 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"heroForm\"]/button"));
         submit.click();
         Thread.sleep(5000);
-
-
+    }
+    @Test
+    public void deleteHeroTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/heros.html");
+        Thread.sleep(2000);
     }
 
 }
