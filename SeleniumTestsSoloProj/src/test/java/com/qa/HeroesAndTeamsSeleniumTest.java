@@ -77,8 +77,8 @@ public class HeroesAndTeamsSeleniumTest {
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
         Thread.sleep(2000);
-        WebElement dropbox = driver.findElement(By.xpath("//*[@id=\"deleteHeroId\"]"));
-        dropbox.sendKeys("34");
+        WebElement dropBox = driver.findElement(By.xpath("//*[@id=\"deleteHeroId\"]"));
+        dropBox.sendKeys("35");
         Thread.sleep(3000);
         WebElement delete = driver.findElement(By.xpath("//*[@id=\"deleteHeroButton\"]"));
         delete.click();
@@ -88,14 +88,26 @@ public class HeroesAndTeamsSeleniumTest {
     public void updateHeroTest() throws InterruptedException{
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
-        Thread.sleep(2000);
-        WebElement dropbox = driver.findElement(By.xpath("//*[@id=\"updateHeroId\"]"));
-        dropbox.sendKeys("34");
         Thread.sleep(3000);
-        WebElement update = driver.findElement(By.xpath("//*[@id=\"deleteHeroButton\"]"));
+        WebElement dropbox = driver.findElement(By.xpath("//*[@id=\"updateHeroId\"]"));
+        dropbox.sendKeys("26");
+        Thread.sleep(3000);
+        WebElement update = driver.findElement(By.xpath("//*[@id=\"heroIdUpdateForm\"]/button"));
         update.click();
         Thread.sleep(3000);
-        
+        WebElement heroName = driver.findElement(By.xpath("//*[@id=\"heroName\"]"));
+        heroName.sendKeys("Captain Britain");
+        Thread.sleep(2000);
+        WebElement issueOne = driver.findElement(By.xpath("//*[@id=\"issueOne\"]"));
+        issueOne.sendKeys("Captain Britain#1");
+        Thread.sleep(2000);
+        WebElement description = driver.findElement(By.xpath("//*[@id=\"description\"]"));
+        description.sendKeys("magic soldier, british hero");
+        Thread.sleep(2000);
+        WebElement submit = driver.findElement(By.xpath("//*[@id=\"heroUpdateForm\"]/button"));
+        submit.click();
+        Thread.sleep(5000);
+
 
     }
 
