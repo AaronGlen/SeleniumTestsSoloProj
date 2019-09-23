@@ -46,8 +46,8 @@ public class HeroesAndTeamsSeleniumTest {
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
         Thread.sleep(3000);
-        WebElement heroName = driver.findElement(By.xpath("//*[@id=\"nameHero\"]"));
-        heroName.sendKeys("Captain America");
+        WebElement search = driver.findElement(By.xpath("//*[@id=\"nameHero\"]"));
+        search.sendKeys("Captain America");
         Thread.sleep(5000);
 
     }
@@ -77,6 +77,26 @@ public class HeroesAndTeamsSeleniumTest {
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
         Thread.sleep(2000);
+        WebElement dropbox = driver.findElement(By.xpath("//*[@id=\"deleteHeroId\"]"));
+        dropbox.sendKeys("34");
+        Thread.sleep(3000);
+        WebElement delete = driver.findElement(By.xpath("//*[@id=\"deleteHeroButton\"]"));
+        delete.click();
+        Thread.sleep(3000);
+    }
+    @Test
+    public void updateHeroTest() throws InterruptedException{
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/heros.html");
+        Thread.sleep(2000);
+        WebElement dropbox = driver.findElement(By.xpath("//*[@id=\"updateHeroId\"]"));
+        dropbox.sendKeys("34");
+        Thread.sleep(3000);
+        WebElement update = driver.findElement(By.xpath("//*[@id=\"deleteHeroButton\"]"));
+        update.click();
+        Thread.sleep(3000);
+        
+
     }
 
 }
