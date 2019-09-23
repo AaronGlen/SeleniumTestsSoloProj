@@ -25,20 +25,43 @@ public class HeroesAndTeamsSeleniumTest {
     }
 
     @Test
-    public void openingWebPage() throws InterruptedException{
+    public void openingWebPageTest() throws InterruptedException{
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
         Thread.sleep(2000);
     }
 
     @Test
-    public void switchingWebPage() throws InterruptedException{
+    public void searchingWebPageTest() throws InterruptedException{
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
         Thread.sleep(2000);
-        WebElement showMessage = driver.findElement(By.xpath("/html/body/div/div[1]/button[2]"));
-        showMessage.click();
+        WebElement teamsPage = driver.findElement(By.xpath("/html/body/div/div[1]/button[2]"));
+        teamsPage.click();
         Thread.sleep(5000);
+
+    }
+    @Test
+    public void createHeroTest() throws InterruptedException{
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/heros.html");
+        Thread.sleep(2000);
+        WebElement create = driver.findElement(By.xpath("/html/body/div/div[4]/div/div[1]/button"));
+        create.click();
+        Thread.sleep(2000);
+        WebElement heroName = driver.findElement(By.xpath("//*[@id=\"heroName\"]"));
+        heroName.sendKeys("Captain America");
+        Thread.sleep(2000);
+        WebElement issueOne = driver.findElement(By.xpath("//*[@id=\"issueOne\"]"));
+        issueOne.sendKeys("Captain America#1");
+        Thread.sleep(2000);
+        WebElement description = driver.findElement(By.xpath("//*[@id=\"description\"]"));
+        description.sendKeys("super soldier, first avenger");
+        Thread.sleep(2000);
+        WebElement submit = driver.findElement(By.xpath("//*[@id=\"heroForm\"]/button"));
+        submit.click();
+        Thread.sleep(5000);
+
 
     }
 
