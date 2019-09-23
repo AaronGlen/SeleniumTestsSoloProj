@@ -15,7 +15,7 @@ public class HeroesAndTeamsSeleniumTest {
     public void setUp(){
         System.setProperty(
                 "webdriver.chrome.driver",
-                "C:\\Users\\Admin\\Documents\\SoloProj\\seleniumTests\\SeleniumTestsSoloProj\\src\\test\\java\\resources\\chromedriver.exe");
+                "C:\\Users\\aagle\\Documents\\soloProgSeleniumTests\\SeleniumTestsSoloProj\\src\\test\\java\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -95,13 +95,13 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement update = driver.findElement(By.xpath("//*[@id=\"heroIdUpdateForm\"]/button"));
         update.click();
         Thread.sleep(3000);
-        WebElement heroName = driver.findElement(By.xpath("//*[@id=\"heroName\"]"));
+        WebElement heroName = driver.findElement(By.xpath("//*[@id=\"heroNameUpdate\"]"));
         heroName.sendKeys("Captain Britain");
         Thread.sleep(2000);
-        WebElement issueOne = driver.findElement(By.xpath("//*[@id=\"issueOne\"]"));
+        WebElement issueOne = driver.findElement(By.xpath("//*[@id=\"issueOneUpdate\"]"));
         issueOne.sendKeys("Captain Britain#1");
         Thread.sleep(2000);
-        WebElement description = driver.findElement(By.xpath("//*[@id=\"description\"]"));
+        WebElement description = driver.findElement(By.xpath("//*[@id=\"descriptionUpdate\"]"));
         description.sendKeys("magic soldier, british hero");
         Thread.sleep(2000);
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"heroUpdateForm\"]/button"));
