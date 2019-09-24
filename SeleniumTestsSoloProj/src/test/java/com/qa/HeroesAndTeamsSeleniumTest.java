@@ -107,8 +107,38 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"heroUpdateForm\"]/button"));
         submit.click();
         Thread.sleep(5000);
+    }
 
+    @Test
+    public void searchForTeamTest()throws InterruptedException{
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/teams.html");
+        Thread.sleep(3000);
+        WebElement search = driver.findElement(By.xpath("//*[@id=\"nameTeam\"]"));
+        search.sendKeys("West");
+        Thread.sleep(5000);
 
+    }
+    @Test
+    public void createTeamTest() throws InterruptedException{
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/teams.html");
+        Thread.sleep(2000);
+        WebElement create = driver.findElement(By.xpath("/html/body/div/div[4]/div/div[1]/button"));
+        create.click();
+        Thread.sleep(2000);
+        WebElement teamName = driver.findElement(By.xpath("//*[@id=\"teamName\"]"));
+        teamName.sendKeys("fantastic four");
+        Thread.sleep(2000);
+        WebElement issueOne = driver.findElement(By.xpath("//*[@id=\"issueOne\"]"));
+        issueOne.sendKeys("ff#1");
+        Thread.sleep(2000);
+        WebElement description = driver.findElement(By.xpath("//*[@id=\"description\"]"));
+        description.sendKeys("marvels first family");
+        Thread.sleep(2000);
+        WebElement submit = driver.findElement(By.xpath("//*[@id=\"teamForm\"]/button"));
+        submit.click();
+        Thread.sleep(5000);
     }
 
 }
