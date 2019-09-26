@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static org.junit.Assert.assertEquals;
+
 public class HeroesAndTeamsSeleniumTest {
     private ChromeDriver driver;
 
@@ -23,12 +25,6 @@ public class HeroesAndTeamsSeleniumTest {
         driver.close();
     }
 
-    @Test
-    public void openingWebPageTest() throws InterruptedException{
-        driver.manage().window().maximize();
-        driver.get( "http://35.222.59.218/SoloProject/heros.html");
-        Thread.sleep(2000);
-    }
 
     @Test
     public void changingWebPageTest() throws InterruptedException{
@@ -38,6 +34,7 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement teamsPage = driver.findElement(By.xpath("/html/body/div/div[1]/button[2]"));
         teamsPage.click();
         Thread.sleep(5000);
+
 
     }
     @Test
@@ -70,26 +67,20 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"heroForm\"]/button"));
         submit.click();
         Thread.sleep(5000);
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"heroTable\"]/tr[7]/td[2]")).getText(),"Captain America");
     }
-    @Test
-    public void deleteHeroTest() throws InterruptedException {
-        driver.manage().window().maximize();
-        driver.get( "http://35.222.59.218/SoloProject/heros.html");
-        Thread.sleep(2000);
-        WebElement dropBox = driver.findElement(By.xpath("//*[@id=\"deleteHeroId\"]"));
-        dropBox.sendKeys("35");
-        Thread.sleep(3000);
-        WebElement delete = driver.findElement(By.xpath("//*[@id=\"deleteHeroButton\"]"));
-        delete.click();
-        Thread.sleep(3000);
-    }
+
+
     @Test
     public void updateHeroTest() throws InterruptedException{
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/heros.html");
         Thread.sleep(3000);
-        WebElement dropbox = driver.findElement(By.xpath("//*[@id=\"updateHeroId\"]"));
-        dropbox.sendKeys("26");
+        WebElement dropBox = driver.findElement(By.xpath("//*[@id=\"updateHeroId\"]"));
+        dropBox.click();
+        Thread.sleep(3000);
+        WebElement dropBoxOption = driver.findElement(By.xpath("//*[@id=\"updateHeroId\"]/option[1]"));
+        dropBoxOption.click();
         Thread.sleep(3000);
         WebElement update = driver.findElement(By.xpath("//*[@id=\"heroIdUpdateForm\"]/button"));
         update.click();
@@ -106,6 +97,24 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"heroUpdateForm\"]/button"));
         submit.click();
         Thread.sleep(5000);
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"heroTable\"]/tr[1]/td[2]")).getText(),"Captain Britain");
+
+    }
+    @Test
+    public void deleteHeroTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/heros.html");
+        Thread.sleep(4000);
+        WebElement dropBox = driver.findElement(By.xpath("//*[@id=\"deleteHeroId\"]"));
+        dropBox.click();
+        Thread.sleep(3000);
+        WebElement dropBoxOption = driver.findElement(By.xpath("//*[@id=\"deleteHeroId\"]/option[1]"));
+        dropBoxOption.click();
+        Thread.sleep(3000);
+        WebElement delete = driver.findElement(By.xpath("//*[@id=\"deleteHeroButton\"]"));
+        delete.click();
+        Thread.sleep(3000);
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"heroTable\"]/tr[1]/td[2]")).getText(),"Blue Marvel");
     }
 
     @Test
@@ -138,26 +147,19 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"teamForm\"]/button"));
         submit.click();
         Thread.sleep(5000);
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"teamTable\"]/tr[5]/td[2]")).getText(),"fantastic four");
     }
-    @Test
-    public void deleteTeamTest() throws InterruptedException {
-        driver.manage().window().maximize();
-        driver.get( "http://35.222.59.218/SoloProject/teams.html");
-        Thread.sleep(2000);
-        WebElement dropBox = driver.findElement(By.xpath("//*[@id=\"deleteTeamId\"]"));
-        dropBox.sendKeys("8");
-        Thread.sleep(3000);
-        WebElement delete = driver.findElement(By.xpath("//*[@id=\"deleteTeamButton\"]"));
-        delete.click();
-        Thread.sleep(3000);
-    }
+
     @Test
     public void updateTeamTest() throws InterruptedException{
         driver.manage().window().maximize();
         driver.get( "http://35.222.59.218/SoloProject/teams.html");
         Thread.sleep(3000);
-        WebElement dropbox = driver.findElement(By.xpath("//*[@id=\"updateTeamId\"]"));
-        dropbox.sendKeys("10");
+        WebElement dropBox = driver.findElement(By.xpath("//*[@id=\"updateTeamId\"]"));
+        dropBox.click();
+        Thread.sleep(3000);
+        WebElement dropBoxOption = driver.findElement(By.xpath("//*[@id=\"updateTeamId\"]/option[1]"));
+        dropBoxOption.click();
         Thread.sleep(3000);
         WebElement update = driver.findElement(By.xpath("//*[@id=\"teamIdUpdateForm\"]/button"));
         update.click();
@@ -174,6 +176,23 @@ public class HeroesAndTeamsSeleniumTest {
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"teamEditForm\"]/button"));
         submit.click();
         Thread.sleep(5000);
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"teamTable\"]/tr[1]/td[2]")).getText(),"future foundation");
+    }
+    @Test
+    public void deleteTeamTest() throws InterruptedException {
+        driver.manage().window().maximize();
+        driver.get( "http://35.222.59.218/SoloProject/teams.html");
+        Thread.sleep(4000);
+        WebElement dropBox = driver.findElement(By.xpath("//*[@id=\"deleteTeamId\"]"));
+        dropBox.click();
+        Thread.sleep(3000);
+        WebElement dropBoxOption = driver.findElement(By.xpath("//*[@id=\"deleteTeamId\"]/option[1]"));
+        dropBoxOption.click();
+        Thread.sleep(3000);
+        WebElement delete = driver.findElement(By.xpath("//*[@id=\"deleteTeamButton\"]"));
+        delete.click();
+        Thread.sleep(3000);
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"teamTable\"]/tr[1]/td[2]")).getText(),"West Coast Avengers");
     }
 
 }
